@@ -58,7 +58,11 @@ const TopNav = React.createClass({
                         
                     </li>
                     <li className="dropDown">
-                        <a className="btn-logout" onClick={this.onLogout}>退出</a>
+                    {
+                        this.state.userName ?
+                        <a className="btn-logout" onClick={this.onLogout}>退出</a> :
+                        <a className="btn-logout" onClick={this.onLogout}>登录</a>
+                    }
                     </li>
                 </ul>
             </div>
