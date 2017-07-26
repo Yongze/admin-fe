@@ -107,7 +107,7 @@ const OrderDetail = React.createClass({
                             <div className="form-group">
                                 <label htmlFor="subtitle" className="col-md-2 control-label">订单金额：</label>
                                 <div className="col-md-5">
-                                    <p type="text" className="form-control-static">￥{this.state.orderInfo.payment}</p>
+                                    <p type="text" className="form-control-static">${this.state.orderInfo.payment}</p>
                                 </div>
                             </div>
                             <div className="col-md-12">
@@ -130,9 +130,9 @@ const OrderDetail = React.createClass({
                                                             <img className="p-img" src={this.state.orderInfo.imageHost + product.productImage} alt={product.productName}/>
                                                         </td>
                                                         <td>{product.productName}</td>
-                                                        <td>￥{product.currentUnitPrice}</td>
+                                                        <td>${product.currentUnitPrice}</td>
                                                         <td>{product.quantity}</td>
-                                                        <td>￥{product.totalPrice}</td>
+                                                        <td>${product.totalPrice}</td>
                                                     </tr>
                                                 )
                                             })
