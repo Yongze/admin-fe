@@ -52,16 +52,16 @@ const TopNav = React.createClass({
                     <li className="dropDown">
                         {
                             this.state.userName ? 
-                            <span>欢迎，{this.state.userName}</span> :
-                            <span>欢迎</span>
+                            <span>Welcome, {this.state.userName}</span> :
+                            <span>Welcome</span>
                         }
                         
                     </li>
                     <li className="dropDown">
                     {
                         this.state.userName ?
-                        <a className="btn-logout" onClick={this.onLogout}>退出</a> :
-                        <a className="btn-logout" onClick={this.onLogout}>登录</a>
+                        <a className="btn-logout" onClick={this.onLogout}>Sign out</a> :
+                        <a className="btn-logout" onClick={this.onLogout}>SIgn in</a>
                     }
                     </li>
                 </ul>

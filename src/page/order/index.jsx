@@ -90,31 +90,31 @@ const OrderList = React.createClass({
     render() {
         return (
             <div id="page-wrapper">
-                <PageTitle pageTitle="订单管理"/>
+                <PageTitle pageTitle="Order management"/>
                 <div className="row">
                     <div className="search-wrap col-md-12">
                         <div className="form-inline">
                             <div className="form-group">
                                 <select className="form-control">
-                                    <option value="orderNumber">按订单号查询</option>
+                                    <option value="orderNumber">Search by orderNo</option>
                                 </select>
                             </div>
                             <div className="form-group">
-                                <input type="text" className="form-control" placeholder="订单号" onChange={this.onOederNumberChange}/>
+                                <input type="text" className="form-control" placeholder="orderNo" onChange={this.onOederNumberChange}/>
                             </div>
-                            <button type="button" className="btn btn-default" onClick={this.onSearch}>查询</button>
+                            <button type="button" className="btn btn-default" onClick={this.onSearch}>Search</button>
                         </div>
                     </div>
                     <div className="table-wrap col-lg-12">
                         <table className="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>订单号</th>
-                                    <th>收件人</th>
-                                    <th>订单状态</th>
-                                    <th>订单总价</th>
-                                    <th>创建时间</th>
-                                    <th>操作</th>
+                                    <th>OrderNo</th>
+                                    <th>Receiver</th>
+                                    <th>Status</th>
+                                    <th>Total</th>
+                                    <th>Create time</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -130,14 +130,14 @@ const OrderList = React.createClass({
                                                 <td>${order.payment}</td>
                                                 <td>{order.createTime}</td>
                                                 <td>
-                                                    <Link className="opear" to={ '/order/detail/' + order.orderNo}>查看</Link>
+                                                    <Link className="opear" to={ '/order/detail/' + order.orderNo}>More detail</Link>
                                                 </td>
                                             </tr>
                                         );
                                     }) :
                                     (
                                         <tr>
-                                            <td colSpan="6" className="text-center">没有找到相应结果~</td>
+                                            <td colSpan="6" className="text-center">No result~</td>
                                         </tr>
                                     )
                                 }

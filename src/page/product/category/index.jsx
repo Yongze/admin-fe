@@ -49,7 +49,7 @@ const ProductCategory = React.createClass({
         });
     },
     onUpdateName(categoryId, categoryName){
-        let newName = window.prompt("请输入新的品类名称", categoryName); 
+        let newName = window.prompt("Please enter new category name", categoryName); 
         if(newName){
             // 更新
             _product.updateCategoryName({
@@ -62,31 +62,31 @@ const ProductCategory = React.createClass({
                 _mm.errorTips(errMsg);
             });
         }else{
-            _mm.errorTips('请输入正确的品类名称');
+            _mm.errorTips('Please enter correct category name');
         }
     },
     render() {
         return (
             <div id="page-wrapper">
-                <PageTitle pageTitle="品类管理">
+                <PageTitle pageTitle="Category management">
                     <div className="page-header-right">
                         <Link className="btn btn-primary" to="/product.category/add">
                             <i className="fa fa-plus fa-fw"></i>
-                            <span>添加品类</span>
+                            <span>Add category</span>
                         </Link>
                     </div>
                 </PageTitle>
                 <div className="row">
                     <div className="col-lg-12">
-                        <p>当前商品分类ID：{this.state.parentCategoryId}</p>
+                        <p>Parent category ID：{this.state.parentCategoryId}</p>
                     </div>
                     <div className="table-wrap col-lg-12">
                         <table className="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th>品类ID</th>
-                                    <th>品类名称</th>
-                                    <th>操作</th>
+                                    <th>Category ID</th>
+                                    <th>Category name</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -99,9 +99,9 @@ const ProductCategory = React.createClass({
                                                 <span>{category.name}</span>
                                             </td>
                                             <td>
-                                            <a className="opera" onClick={this.onUpdateName.bind(this, category.id, category.name)}>修改名称</a>
+                                            <a className="opera" onClick={this.onUpdateName.bind(this, category.id, category.name)}>Edit name</a>
                                             {category.parentId == 0 ? 
-                                                <Link to={'/product.category/index/' + category.id} className="opera">查看其子品类</Link>
+                                                <Link to={'/product.category/index/' + category.id} className="opera">subCategories</Link>
                                                 : null
                                             }
                                             </td>

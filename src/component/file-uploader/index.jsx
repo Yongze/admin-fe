@@ -38,7 +38,7 @@ const FileUploader = React.createClass({
         /*Set two dom with ref*/
         return (
             <FileUpload options={options}>
-                <button ref="chooseAndUpload">上传图片</button>
+                <button ref="chooseAndUpload">Upload</button>
             </FileUpload>
         )           
     }

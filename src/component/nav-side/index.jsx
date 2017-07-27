@@ -34,25 +34,25 @@ const SideNav = React.createClass({
                         <li>
                             <Link>
                                 <i className="fa fa-bar-chart-o fa-fw"></i>
-                                <span>商品</span>
+                                <span>Goods</span>
                             </Link>
                             <ul className="nav nav-second-level collapse in">
                                 <li>
-                                    <Link to="/product" activeClassName="active">商品管理</Link>
+                                    <Link to="/product" activeClassName="active">Goods Management</Link>
                                 </li>
                                 <li>
-                                    <Link to="/product.category" activeClassName="active">品类管理</Link>
+                                    <Link to="/product.category" activeClassName="active">Category Management</Link>
                                 </li>
                             </ul>
                         </li>
                         <li>
                             <Link>
                                 <i className="fa fa-wrench fa-fw"></i>
-                                <span>订单</span>
+                                <span>Order</span>
                             </Link>
                             <ul className="nav nav-second-level collapse in">
                                 <li>
-                                    <Link to="/order" activeClassName="active">订单管理</Link>
+                                    <Link to="/order" activeClassName="active">Order Management</Link>
                                 </li>
                             </ul>
                         </li>

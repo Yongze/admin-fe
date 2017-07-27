@@ -43,7 +43,7 @@ const OrderDetail = React.createClass({
         });
     },
     onSendGoods(){
-        if(confirm('是否确认该订单已发货？')){
+        if(confirm('Confirm this order is on shipping')){
             _order.sendGoods(this.state.orderNumber).then(res => {
                 this.loadOrderDetail();
             }, errMsg => {
@@ -56,24 +56,24 @@ const OrderDetail = React.createClass({
             receiverInfo    = this.state.orderInfo.shippingVo       || {}
         return (
             <div id="page-wrapper">
-                <PageTitle pageTitle="订单详情"/>
+                <PageTitle pageTitle="Order Details"/>
                 <div className="row">
                     <div className="form-wrap col-lg-12">
                         <div className="form-horizontal">
                             <div className="form-group">
-                                <label htmlFor="name" className="col-md-2 control-label">订单号：</label>
+                                <label htmlFor="name" className="col-md-2 control-label">OrderNo : </label>
                                 <div className="col-md-5">
                                     <p type="text" className="form-control-static">{this.state.orderInfo.orderNo}</p>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="subtitle" className="col-md-2 control-label">创建时间：</label>
+                                <label htmlFor="subtitle" className="col-md-2 control-label">Create time : </label>
                                 <div className="col-md-5">
                                     <p type="text" className="form-control-static">{this.state.orderInfo.createTime}</p>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="subtitle" className="col-md-2 control-label">收件人：</label>
+                                <label htmlFor="subtitle" className="col-md-2 control-label">Receiver : </label>
                                 <div className="col-md-5">
                                     <p type="text" className="form-control-static">
                                         {this.state.orderInfo.receiverName}，
@@ -85,13 +85,13 @@ const OrderDetail = React.createClass({
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="subtitle" className="col-md-2 control-label">订单状态：</label>
+                                <label htmlFor="subtitle" className="col-md-2 control-label">Status :</label>
                                 <div className="col-md-5">
                                     <p type="text" className="form-control-static">
                                         {this.state.orderInfo.statusDesc}
                                         {
                                             this.state.orderInfo.status == 20 
-                                                ? <a className="btn btn-sm btn-default btn-send-goods" onClick={this.onSendGoods}>立即发货</a>
+                                                ? <a className="btn btn-sm btn-default btn-send-goods" onClick={this.onSendGoods}>Send</a>
                                                 : null
                                         }   
                                         
@@ -99,13 +99,13 @@ const OrderDetail = React.createClass({
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="subtitle" className="col-md-2 control-label">支付方式：</label>
+                                <label htmlFor="subtitle" className="col-md-2 control-label">Payment type :</label>
                                 <div className="col-md-5">
                                     <p type="text" className="form-control-static">{this.state.orderInfo.paymentTypeDesc}</p>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="subtitle" className="col-md-2 control-label">订单金额：</label>
+                                <label htmlFor="subtitle" className="col-md-2 control-label">Order price :</label>
                                 <div className="col-md-5">
                                     <p type="text" className="form-control-static">${this.state.orderInfo.payment}</p>
                                 </div>
@@ -114,11 +114,11 @@ const OrderDetail = React.createClass({
                                 <table className="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th width="15%">商品图片</th>
-                                            <th width="40%">商品信息</th>
-                                            <th width="15%">单价</th>
-                                            <th width="15%">数量</th>
-                                            <th width="15%">合计</th>
+                                            <th width="15%">Images</th>
+                                            <th width="40%">Info</th>
+                                            <th width="15%">Unit price</th>
+                                            <th width="15%">Quantity</th>
+                                            <th width="15%">Total</th>
                                         </tr>
                                     </thead>
                                     <tbody>

@@ -27,7 +27,7 @@ const ProductCategory = React.createClass({
     render() {
         return (
             <div id="page-wrapper">
-                <PageTitle pageTitle="品类管理">
+                <PageTitle pageTitle="Category management">
                     <div className="page-header-right">
                         <Link className="btn btn-primary" to="/product.category/add">
                             <i className="fa fa-plus fa-fw"></i>

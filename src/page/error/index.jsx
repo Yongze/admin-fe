@@ -24,10 +24,10 @@ const ErrorPage = React.createClass({
     render() {
         return (
             <div id="page-wrapper">
-                <PageTitle pageTitle="出错啦~"/>
+                <PageTitle pageTitle="Error ocurrs :("/>
                 <div className="row">
                     <div className="col-lg-3 col-md-6">
-                        <Link to="/">点我返回首页</Link>
+                        <Link to="/">Click me to home page</Link>
                     </div>
                 </div>
             </div>

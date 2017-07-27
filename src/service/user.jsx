@@ -17,13 +17,13 @@ export default class User{
         if(!userInfo.username){
             return {
                 state: false,
-                msg: '用户名不能为空'
+                msg: 'User name cannot be empty'
             }
         }
         if(!userInfo.password){
             return {
                 state: false,
-                msg: '密码不能为空'
+                msg: 'Password cannot be empty'
             }
         }
         return {

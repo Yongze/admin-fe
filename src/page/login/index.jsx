@@ -58,7 +58,7 @@ const Login = React.createClass({
                 <div className="col-md-4 col-md-offset-4">
                     <div className="login-panel panel panel-default">
                         <div className="panel-heading">
-                            <h3 className="panel-title">请登录</h3>
+                            <h3 className="panel-title">Sign in</h3>
                         </div>
                         <div className="panel-body">
                             <form role="form" onSubmit={this.onLogin}>

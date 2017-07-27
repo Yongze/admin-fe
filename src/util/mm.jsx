@@ -61,11 +61,11 @@ class MMUtil{
     }
     // alert
     successTips(msg){
-        alert(msg || '操作成功');
+        alert(msg || 'Success!');
     }
     // alert
     errorTips(msg){
-        alert(msg || '哪里不对了~');
+        alert(msg || 'Something goes wrong~');
     }
     // 向本地存储里放数据
     setStorage(name, data){
@@ -80,7 +80,7 @@ class MMUtil{
         }
         // undefined / function
         else{
-            alert('该数据类型不能用于本地存储');
+            alert('This data type cannot be stored locally');
         }
     }
     // 从本地存储获取数据

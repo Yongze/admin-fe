@@ -19,7 +19,7 @@ const _product = new Product();
 const ProductCategoryAdd = React.createClass({
     getInitialState() {
         return {
-            pageName        : '所属品类',
+            pageName        : 'Parent category',
             parentId        : 0,  // 所属品类
             categoryName    : '', // 品类名称
             categoryList    : []  // 品类集合
@@ -44,7 +44,7 @@ const ProductCategoryAdd = React.createClass({
     onSubmit(e){
         e.preventDefault();
         if(!this.state.categoryName){
-            alert('请输入品类名称');
+            alert('Please enter product name');
             return;
         }
         // 请求接口
@@ -52,7 +52,7 @@ const ProductCategoryAdd = React.createClass({
             parentId      : this.state.parentId,
             categoryName    : this.state.categoryName
         }).then(res => {
-            alert('商品添加成功');
+            alert('Succeed to add new category');
             window.location.href='#/product.category/index';
         }, errMsg => {
             alert(errMsg);
@@ -61,7 +61,7 @@ const ProductCategoryAdd = React.createClass({
     render() {
         return (
             <div id="page-wrapper">
-                <PageTitle pageTitle="品类管理 -- 添加品类"/>
+                <PageTitle pageTitle="Category management -- add new category"/>
                 <div className="row">
                     <div className="form-wrap col-lg-12">
                         <form className="form-horizontal" onSubmit={this.onSubmit}>
@@ -69,11 +69,11 @@ const ProductCategoryAdd = React.createClass({
                                 <label className="col-md-2 control-label">{this.state.pageName}</label>
                                 <div className="col-md-10">
                                     <select className="form-control cate-select" name="parentId" onChange={this.onValueChange}>
-                                        <option value="0">/所有</option>
+                                        <option value="0">/All</option>
                                         {
                                             this.state.categoryList.map(function(category, index) {
                                                 return (
-                                                    <option value={category.id} key={index}>/所有/{category.name}</option>
+                                                    <option value={category.id} key={index}>/All/{category.name}</option>
                                                 );
                                             })
                                         }
@@ -81,21 +81,21 @@ const ProductCategoryAdd = React.createClass({
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="category-name" className="col-md-2 control-label">品类名称</label>
+                                <label htmlFor="category-name" className="col-md-2 control-label">Category name</label>
                                 <div className="col-md-3">
                                     <input type="text" 
                                         className="form-control" 
                                         id="category-name" 
                                         name="categoryName"
                                         autoComplete="off"
-                                        placeholder="请输入品类名称"
+                                        placeholder="Please enter category name"
                                         onChange={this.onValueChange}/>
                                 </div>
                             </div>
                             
                             <div className="form-group">
                                 <div className="col-md-offset-2 col-md-10">
-                                    <button type="submit" className="btn btn-xl btn-primary">提交</button></div>
+                                    <button type="submit" className="btn btn-xl btn-primary">Submit</button></div>
                             </div>
                         </form>
                     </div>

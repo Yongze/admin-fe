@@ -86,7 +86,7 @@ const ProductSave = React.createClass({
                 }
                 this.refs['rich-editor'].setValue(product.detail);
             }, err => {
-                alert(err.msg || '哪里不对了~');
+                alert(err.msg || 'Something goes wrong~');
             });
         }
     },
@@ -177,27 +177,27 @@ const ProductSave = React.createClass({
         if(!product.name){
             result = {
                 status  : false,
-                msg     : '请输入商品名称'
+                msg     : 'Please enter product name'
             }
         }
         if(!product.subtitle){
             result = {
                 status  : false,
-                msg     : '请输入商品描述'
+                msg     : 'Please enter product description'
             }
         }
         if(!product.price){
             result = {
                 status  : false,
-                msg     : '请输入商品价格'
+                msg     : 'Please enter product'
             }
         }
-        if(!product.subtitle){
-            result = {
-                status  : false,
-                msg     : '请输入商品描述'
-            }
-        }
+        //if(!product.subtitle){
+        //    result = {
+        //        status  : false,
+        //        msg     : '请输入商品描述'
+        //    }
+        //}
         return result;
     },
     // 提交表单
@@ -237,39 +237,39 @@ const ProductSave = React.createClass({
     render() {
         return (
             <div id="page-wrapper">
-                <PageTitle pageTitle={'商品管理 -- ' + (this.state.id ? '修改商品' : '添加商品')}/>
+                <PageTitle pageTitle={'Goods management -- ' + (this.state.id ? 'Edit goods' : 'Add goods')}/>
                 <div className="row">
                     <div className="form-wrap col-lg-12">
                         <div className="form-horizontal">
                             <div className="form-group">
-                                <label htmlFor="name" className="col-md-2 control-label">商品名称</label>
+                                <label htmlFor="name" className="col-md-2 control-label">Product name</label>
                                 <div className="col-md-5">
                                     <input type="text" 
                                         className="form-control"
                                         name="name"
                                         id="name"
-                                        placeholder="请输入商品名称"
+                                        placeholder="Please enter product name"
                                         value={this.state.name}
                                         onChange={this.onValueChange}/>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="subtitle" className="col-md-2 control-label">商品描述</label>
+                                <label htmlFor="subtitle" className="col-md-2 control-label">Description</label>
                                 <div className="col-md-5">
                                     <input type="text"
                                         className="form-control"
                                         name="subtitle"
                                         id="subtitle"
-                                        placeholder="请输入商品描述"
+                                        placeholder="Please enter product description"
                                         value={this.state.subtitle}
                                         onChange={this.onValueChange}/>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="" className="col-md-2 control-label">所属分类</label>
+                                <label htmlFor="" className="col-md-2 control-label">Categories</label>
                                 <div className="col-md-10">
                                     <select type="password" className="form-control cate-select col-md-5" value={this.state.firstCategoryId} onChange={this.onFirstCategoryChange}>
-                                        <option value="">请选择一级品类</option>
+                                        <option value="">--Category--</option>
                                         {
                                             this.state.firstCategoryList.map((category, index) => {
                                                 return (
@@ -280,7 +280,7 @@ const ProductSave = React.createClass({
                                     </select>
                                     {this.state.secondCategoryList.length ?  
                                         <select type="password" className="form-control cate-select col-md-5" value={this.state.secondCategoryId} onChange={this.onSecondCategoryChange}>
-                                            <option value="">请选择二级品类</option>
+                                            <option value="">--Type--</option>
                                             {
                                                 this.state.secondCategoryList.map((category, index) => {
                                                     return (
@@ -293,37 +293,37 @@ const ProductSave = React.createClass({
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="price" className="col-md-2 control-label">商品价格</label>
+                                <label htmlFor="price" className="col-md-2 control-label">Product price</label>
                                 <div className="col-md-3">
                                     <div className="input-group">
                                         <input type="number" 
                                             className="form-control" 
                                             id="price" 
-                                            placeholder="价格"
+                                            placeholder="Unit price"
                                             name="price"
                                             value={this.state.price}
                                             onChange={this.onValueChange}/>
-                                        <div className="input-group-addon">元</div>
+                                        <div className="input-group-addon">AU$</div>
                                     </div>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="stock" className="col-md-2 control-label">商品库存</label>
+                                <label htmlFor="stock" className="col-md-2 control-label">Available stock</label>
                                 <div className="col-md-3">
                                     <div className="input-group">
                                         <input type="number" 
                                             className="form-control" 
                                             id="stock" 
                                             name="stock"
-                                            placeholder="库存" 
+                                            placeholder="Available stock" 
                                             value={this.state.stock}
                                             onChange={this.onValueChange}/>
-                                        <div className="input-group-addon">件</div>
+                                        <div className="input-group-addon">items</div>
                                     </div>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="inputEmail3" className="col-md-2 control-label">商品图片</label>
+                                <label htmlFor="inputEmail3" className="col-md-2 control-label">Images</label>
                                 <div className="img-con col-md-10">
                                     {
                                         this.state.subImages.length ? this.state.subImages.map((image, index) => {
@@ -333,7 +333,7 @@ const ProductSave = React.createClass({
                                                     <i className="fa fa-close fa-fw" onClick={this.onDeleteImage.bind(this, image)}></i>
                                                 </div>
                                             );
-                                        }) : <div className="notice">请上传图片</div>
+                                        }) : <div className="notice">Please upload images here</div>
                                     }
                                 </div>
                                 <div className="col-md-offset-2 col-md-10">
@@ -341,14 +341,14 @@ const ProductSave = React.createClass({
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="inputEmail3" className="col-md-2 control-label">商品详情</label>
+                                <label htmlFor="inputEmail3" className="col-md-2 control-label">Details</label>
                                 <div className="col-md-10">
-                                    <RichEditor ref="rich-editor" onValueChange={this.onRichValueChange} placeholder="商品详细信息"/>
+                                    <RichEditor ref="rich-editor" onValueChange={this.onRichValueChange} placeholder="Product detail information"/>
                                 </div>
                             </div>
                             <div className="form-group">
                                 <div className="col-md-offset-2 col-md-10">
-                                    <button type="btn" className="btn btn-xl btn-primary" onClick={this.onSubmit}>提交</button></div>
+                                    <button type="btn" className="btn btn-xl btn-primary" onClick={this.onSubmit}>Submit</button></div>
                             </div>
                         </div>
                     </div>

@@ -109,33 +109,33 @@ const ProductDetail = React.createClass({
     render() {
         return (
             <div id="page-wrapper">
-                <PageTitle pageTitle="商品详情"/>
+                <PageTitle pageTitle="Product Detail"/>
                 <div className="row">
                     <div className="form-wrap col-lg-12">
                         <div className="form-horizontal">
                             <div className="form-group">
-                                <label htmlFor="name" className="col-md-2 control-label">商品名称</label>
+                                <label htmlFor="name" className="col-md-2 control-label">Product name</label>
                                 <div className="col-md-5">
                                     <p type="text" className="form-control-static">{this.state.name}</p>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="subtitle" className="col-md-2 control-label">商品描述</label>
+                                <label htmlFor="subtitle" className="col-md-2 control-label">Description</label>
                                 <div className="col-md-5">
                                     <p type="text" className="form-control-static">{this.state.subtitle}</p>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="subtitle" className="col-md-2 control-label">当前状态</label>
+                                <label htmlFor="subtitle" className="col-md-2 control-label">Status</label>
                                 <div className="col-md-5">
-                                    <p type="text" className="form-control-static">{this.state.status == 1 ? '在售' : '已下架'}</p>
+                                    <p type="text" className="form-control-static">{this.state.status == 1 ? 'onSale' : 'Off product'}</p>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="" className="col-md-2 control-label">所属分类</label>
+                                <label htmlFor="" className="col-md-2 control-label">Categories</label>
                                 <div className="col-md-10">
                                     <select type="password" className="form-control cate-select col-md-5" value={this.state.firstCategoryId} readOnly>
-                                        <option value="">请选择一级品类</option>
+                                        <option value="">--Category--</option>
                                         {
                                             this.state.firstCategoryList.map((category, index) => {
                                                 return (
@@ -146,7 +146,7 @@ const ProductDetail = React.createClass({
                                     </select>
                                     {this.state.secondCategoryList.length ?  
                                         <select type="password" className="form-control cate-select col-md-5" value={this.state.secondCategoryId} readOnly>
-                                            <option value="">请选择二级品类</option>
+                                            <option value="">--Type--</option>
                                             {
                                                 this.state.secondCategoryList.map((category, index) => {
                                                     return (
@@ -159,35 +159,35 @@ const ProductDetail = React.createClass({
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="price" className="col-md-2 control-label">商品价格</label>
+                                <label htmlFor="price" className="col-md-2 control-label">Product price</label>
                                 <div className="col-md-3">
                                     <div className="input-group">
                                         <input type="number" 
                                             className="form-control" 
                                             id="price" 
-                                            placeholder="价格"
+                                            placeholder="Unit price"
                                             value={this.state.price}
                                             readOnly/>
-                                        <div className="input-group-addon">元</div>
+                                        <div className="input-group-addon">AU$</div>
                                     </div>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="stock" className="col-md-2 control-label">商品库存</label>
+                                <label htmlFor="stock" className="col-md-2 control-label">Available stock</label>
                                 <div className="col-md-3">
                                     <div className="input-group">
                                         <input type="number" 
                                             className="form-control" 
                                             id="stock"
-                                            placeholder="库存" 
+                                            placeholder="Available stock" 
                                             value={this.state.stock}
                                             readOnly/>
-                                        <div className="input-group-addon">件</div>
+                                        <div className="input-group-addon">items</div>
                                     </div>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="inputEmail3" className="col-md-2 control-label">商品图片</label>
+                                <label htmlFor="inputEmail3" className="col-md-2 control-label">Images</label>
                                 <div className="img-con col-md-10">
                                     {
                                         this.state.subImages.length ? this.state.subImages.map((image, index) => {
@@ -196,12 +196,12 @@ const ProductDetail = React.createClass({
                                                     <img className="img" src={_mm.getImageUrl(image)}/>
                                                 </div>
                                             );
-                                        }) : <div className="notice">没有图片</div>
+                                        }) : <div className="notice">No images</div>
                                     }
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="inputEmail3" className="col-md-2 control-label">商品详情</label>
+                                <label htmlFor="inputEmail3" className="col-md-2 control-label">Details</label>
                                 <div className="col-md-10" dangerouslySetInnerHTML={{__html: this.state.detail}}></div>
                             </div>
                         </div>

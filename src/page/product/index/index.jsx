@@ -87,7 +87,7 @@ const ProductList = React.createClass({
     setProductStatus(productId, status){
         let currentStatus   = status,
             newStatus       = currentStatus == 1 ? 2 : 1,
-            statusChangeTips= currentStatus == 1 ? '确认要下架该商品？' : '确认要上架该商品？';
+            statusChangeTips= currentStatus == 1 ? 'Confirm to set this product to be unavailable?' : 'Confirm to set this product to be available?';
         if(window.confirm(statusChangeTips)){
             _product.setProductStatus(productId, newStatus).then(res => {
                 // 操作成功提示
@@ -102,9 +102,9 @@ const ProductList = React.createClass({
         
         return (
             <div id="page-wrapper">
-                <PageTitle pageTitle="商品管理">
+                <PageTitle pageTitle="Goods management">
                     <div className="page-header-right">
-                        <Link className="btn btn-primary" to="/product/save"><i className="fa fa-plus fa-fw"></i>添加商品</Link>
+                        <Link className="btn btn-primary" to="/product/save"><i className="fa fa-plus fa-fw"></i>Add product</Link>
                     </div>
                 </PageTitle>
                 <div className="row">
@@ -112,14 +112,14 @@ const ProductList = React.createClass({
                         <div className="form-inline">
                             <div className="form-group">
                                 <select className="form-control" onChange={this.onSearchTypeChange}>
-                                    <option value="productId">按商品id查询</option>
-                                    <option value="productName">按商品名称查询</option>
+                                    <option value="productId">Search by ID</option>
+                                    <option value="productName">Search by name</option>
                                 </select>
                             </div>
                             <div className="form-group">
-                                <input type="text" className="form-control" placeholder="关键词" onChange={this.onKeywordChange}/>
+                                <input type="text" className="form-control" placeholder="keyword" onChange={this.onKeywordChange}/>
                             </div>
-                            <button type="button" className="btn btn-default" onClick={this.onSearch}>查询</button>
+                            <button type="button" className="btn btn-default" onClick={this.onSearch}>Search</button>
                         </div>
                     </div>
                     <div className="table-wrap col-lg-12">
@@ -127,10 +127,10 @@ const ProductList = React.createClass({
                             <thead>
                                 <tr>
                                     <th>id</th>
-                                    <th>信息</th>
-                                    <th>价格</th>
-                                    <th>状态</th>
-                                    <th>操作</th>
+                                    <th>Info</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -145,21 +145,21 @@ const ProductList = React.createClass({
                                                 </td>
                                                 <td>{product.price}</td>
                                                 <td>
-                                                    <span>{product.status == 1 ? '在售' : '已下架'}</span>
+                                                    <span>{product.status == 1 ? 'onSale' : 'Off product'}</span> | 
                                                     <a className="btn btn-xs btn-warning opear" 
                                                         data-status={product.status} 
-                                                        onClick={this.setProductStatus.bind(this, product.id, product.status)}>{product.status == 1 ? '下架' : '上架'}</a>
+                                                        onClick={this.setProductStatus.bind(this, product.id, product.status)}>{product.status == 1 ? 'unavailable' : 'Available'}</a>
                                                 </td>
                                                 <td>
-                                                    <Link className="opear" to={ '/product/detail/' + product.id}>查看</Link>
-                                                    <Link className="opear"  to={ '/product/save/' + product.id}>编辑</Link>
+                                                    <Link className="opear" to={ '/product/detail/' + product.id}>detail</Link>
+                                                    <Link className="opear"  to={ '/product/save/' + product.id}>edit</Link>
                                                 </td>
                                             </tr>
                                         );
                                     }) :
                                     (
                                         <tr>
-                                            <td colSpan="5" className="text-center">暂无结果~</td>
+                                            <td colSpan="5" className="text-center">Currently not found~</td>
                                         </tr>
                                     )
                                 }
